@@ -1,0 +1,118 @@
+@import "variables";
+@import "fonts";
+
+:root {
+  --main-bg: #222831;
+  --secondary-bg: rgba(57, 62, 70, 0.5);
+
+  --main-text: #fff;
+  --secondary-text: #00ADB5;
+  --gray-text: rgba(238, 238, 238, 0.5);
+
+  --main-btn: #00ADB5;
+  --hover-btn: #01898d;
+
+  --main-input: rgba(57, 62, 70, 0.5);
+}
+
+* {
+  padding: 0;
+  margin: 0;
+  border: 0;
+}
+
+*,
+*:before,
+*:after {
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  -webkit-tap-highlight-color: transparent;
+}
+
+aside,
+nav,
+footer,
+header,
+section {
+  display: block;
+}
+
+html,
+body {
+  height: 100%;
+
+  background: var(--main-bg);
+  font-family: $fontFamily;
+  transition: background 0.3s ease 0s;
+}
+
+html {
+  font-size: $fontSize;
+}
+
+body {
+  height: 100%;
+  min-width: $minWidth;
+
+  transition: background 0.3s ease 0s;
+
+
+  -ms-text-size-adjust: 100%;
+  -moz-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+input,
+button,
+textarea {
+  font-family: $fontFamily;
+  font-size: inherit;
+  background: transparent;
+}
+
+button {
+  cursor: pointer;
+  background-color: inherit;
+}
+
+button::-moz-focus-inner {
+  padding: 0;
+  border: 0;
+}
+
+a,
+a:visited {
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: none;
+}
+
+ul li {
+  list-style: none;
+}
+
+img {
+  vertical-align: top;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-weight: inherit;
+  font-size: inherit;
+}
+
+
+@media (prefers-color-scheme: dark) {
+  html {
+    color-scheme: dark;
+  }
+}

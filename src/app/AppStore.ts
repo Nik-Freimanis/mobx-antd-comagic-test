@@ -1,10 +1,11 @@
 import { makeAutoObservable } from 'mobx';
 import { nanoid } from 'nanoid';
+import {faker} from "@faker-js/faker";
 
 export type user = {id: string, firstName: string, lastName: string};
 export type message = {id: string, value: string, to: user['id']};
 class AppStore {
-    public posts: {id: string, comments: {id: string, description: string}[]}[];
+    public posts: {id: string, text: string, author: string, comments: {id: string, description: string}[]}[];
     public users: user[]
     public messages: message[];
     public friendIds: string[];
@@ -16,7 +17,10 @@ class AppStore {
 
 
     addPost() {
-        this.posts.push({id: nanoid(8), comments: []});
+        const postText = faker.lorem.sentence();
+        const postImg = faker.image.url();
+        const postAuthor = faker.person.fullName()
+        this.posts.push({id: nanoid(8), author: postAuthor, text: postText, comments: []});
     }
 
     public setUsers(users: user[]) {

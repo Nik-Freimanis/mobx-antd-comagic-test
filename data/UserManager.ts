@@ -5,11 +5,11 @@ import { nanoid } from 'nanoid';
 import { faker } from '@faker-js/faker';
 
 export async function getUserByLogin(login: string) {
-    if (login === 'admin@gmail.com')
+    if (login === 'admin@comagic.dev')
         return {
         id: '21',
-        password: 'aboba',//хэш пароля
-        email: 'admin@gmail.com'
+        password: 'comagic',
+        email: 'admin@comagic.dev'
         }
     return null
 }

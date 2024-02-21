@@ -29,13 +29,13 @@ export const authOptions: NextAuthOptions = {
 
 
             if (user.email === null || user.email === undefined) {
-                return '/sign-up';
+                return '/api/auth/signin';
             }
             const dbUser = await getUserByLogin(credentials.email as string)
             if (dbUser)
                 return credentials?.password === dbUser.password;
                 // тут лучше через хэширование делать, но для нашего кейса так норм
-            return '/sign-up';
+            return '/api/auth/signin';
         },
     },
     providers: [

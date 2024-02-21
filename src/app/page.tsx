@@ -16,7 +16,7 @@ const Home = observer(() => {
 
   return (
       <div className={'flex flex-col gap-[30px]'}>
-        {AppStore.posts.map(item => <Post key={item.id} id={item.id}/>)}
+        {AppStore.posts.map(item => <Post key={item.id} id={item.id} text={item.text} author={item.author}/>)}
         <Button onClick={() => AppStore.addPost()}>Добавить Пост</Button>
       </div>
   );

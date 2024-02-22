@@ -4,7 +4,10 @@ import "./globals.css";
 import {getServerSession, redirectIfNoSession} from '../../utils/auth';
 import {AntdRegistry} from '@ant-design/nextjs-registry';
 import {ReactNode} from "react";
-import {redirect} from "next/navigation";
+import s from './layout.module.scss'
+import bg from '../assets/img/bg.webp'
+import Image from "next/image";
+
 
 const inter = Inter({subsets: ["latin"]});
 
@@ -22,9 +25,22 @@ export default async function RootLayout({children}: Readonly<ProfileLayoutProps
 
     return (
         <html lang="en">
-        <body className={inter.className}>
+        <body>
         <AntdRegistry>
-            {children}
+            <div className={s.layout}>
+                <Image src={bg} alt={'background'} id={'background'}/>
+                <div className={s.layout__container}>
+                    <div className={s.layout__container_content}>
+                        <div className={s.layout__container_content_bar}>
+
+                        </div>
+                        <div className={s.layout__container_content_children}>
+                            {children}
+                        </div>
+                    </div>
+                </div>
+
+            </div>
         </AntdRegistry>
         </body>
         </html>

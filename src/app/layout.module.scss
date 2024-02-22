@@ -1,0 +1,54 @@
+@import "src/styles/mixins";
+
+
+.layout {
+  display: flex;
+  height: 100vh;
+  min-height: 1000px;
+  width: 100vw;
+
+
+  [id = 'background'] {
+    position: absolute;
+    height: inherit;
+    min-height: 1000px;
+    width: inherit;
+    object-fit: cover;
+  }
+
+  &__container {
+    margin: auto;
+    display: flex;
+    width: 1450px;
+    height: 100%;
+    justify-content: center;
+    z-index: 1;
+
+
+    &_content {
+      margin: auto;
+      display: flex;
+      height: 950px;
+      width: 100%;
+      gap: 32px;
+
+      &_bar {
+        padding: 32px;
+        display: flex;
+        min-width: 350px;
+        height: 100%;
+
+        @include glassmorphism-main;
+      }
+
+      &_children {
+        padding: 32px;
+        display: flex;
+        height: 100%;
+        width: 640px;
+
+        @include glassmorphism-main;
+      }
+    }
+  }
+}

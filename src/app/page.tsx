@@ -3,9 +3,10 @@ import Image from "next/image";
 import { observer } from 'mobx-react';
 import AppStore from './AppStore';
 import { Button } from 'antd';
-import { Post } from '@/app/Post';
+import {Post} from '../../components/Post/Post'
 import { useEffect } from 'react';
 import { getUsersList } from '../../data/UserManager';
+import s from './page.module.scss'
 
 const Home = observer(() => {
 
@@ -15,9 +16,14 @@ const Home = observer(() => {
   }, [])
 
   return (
-      <div className={'flex flex-col gap-[30px]'}>
-        {AppStore.posts.map(item => <Post key={item.id} id={item.id} text={item.text} author={item.author}/>)}
-        <Button onClick={() => AppStore.addPost()}>Добавить Пост</Button>
+      <div className={s.page}>
+          <div className={s.page__title}>
+              <h1>Лента новостей</h1>
+              <Button onClick={() => AppStore.addPost()}>Добавить Пост</Button>
+          </div>
+          <div className={s.page__content}>
+              {AppStore.posts.map(item => <Post key={item.id} {...item}/>)}
+          </div>
       </div>
   );
 });

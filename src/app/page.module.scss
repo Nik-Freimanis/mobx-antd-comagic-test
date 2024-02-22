@@ -1,0 +1,28 @@
+@import "src/styles/variables";
+
+.page {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  width: 100%;
+
+  &__title {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+
+    h1 {
+      font-family: $fontFamily;
+      font-size: 28px;
+    }
+  }
+
+  &__content {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+
+    overflow: scroll;
+
+  }
+}

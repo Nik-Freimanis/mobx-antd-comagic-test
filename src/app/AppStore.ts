@@ -5,7 +5,7 @@ import {faker} from "@faker-js/faker";
 export type user = {id: string, firstName: string, lastName: string};
 export type message = {id: string, value: string, to: user['id']};
 class AppStore {
-    public posts: {id: string, text: string, author: string, comments: {id: string, description: string}[]}[];
+    public posts: {id: string, text: string, author: string, avatar: string, img: string, comments: {id: string, description: string}[]}[];
     public users: user[]
     public messages: message[];
     public friendIds: string[];
@@ -17,10 +17,12 @@ class AppStore {
 
 
     addPost() {
+        const postProfileImg = faker.image.avatarGitHub()
         const postText = faker.lorem.sentence();
-        const postImg = faker.image.url();
+        const postImg = `${faker.image.urlLoremFlickr()}?random=${Math.round(Math.random() * 1000)}`
         const postAuthor = faker.person.fullName()
-        this.posts.push({id: nanoid(8), author: postAuthor, text: postText, comments: []});
+
+        this.posts.unshift({id: nanoid(8), author: postAuthor, avatar: postProfileImg, text: postText, img: postImg, comments: []});
     }
 
     public setUsers(users: user[]) {

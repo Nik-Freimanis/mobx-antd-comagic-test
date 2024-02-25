@@ -7,6 +7,9 @@ import {ReactNode} from "react";
 import s from './layout.module.scss'
 import bg from '../assets/img/bg.webp'
 import Image from "next/image";
+import {SessionProvider} from "next-auth/react";
+import {Providers} from "../../components/Providers";
+import {redirect} from "next/navigation";
 
 
 const inter = Inter({subsets: ["latin"]});
@@ -22,26 +25,34 @@ export const metadata: Metadata = {
 
 
 export default async function RootLayout({children}: Readonly<ProfileLayoutProps>) {
+    const serverSession = await getServerSession()
+    if (!serverSession?.user.email) {
+        redirect('/api/auth/signin');
+        return null
+    }
+
 
     return (
         <html lang="en">
         <body>
-        <AntdRegistry>
-            <div className={s.layout}>
-                <Image src={bg} alt={'background'} id={'background'}/>
-                <div className={s.layout__container}>
-                    <div className={s.layout__container_content}>
-                        <div className={s.layout__container_content_bar}>
+        <Providers>
+            <AntdRegistry>
+                <div className={s.layout}>
+                    <Image src={bg} alt={'background'} id={'background'}/>
+                    <div className={s.layout__container}>
+                        <div className={s.layout__container_content}>
+                            <div className={s.layout__container_content_bar}>
 
-                        </div>
-                        <div className={s.layout__container_content_children}>
-                            {children}
+                            </div>
+                            <div className={s.layout__container_content_children}>
+                                {children}
+                            </div>
                         </div>
                     </div>
-                </div>
 
-            </div>
-        </AntdRegistry>
+                </div>
+            </AntdRegistry>
+        </Providers>
         </body>
         </html>
     );

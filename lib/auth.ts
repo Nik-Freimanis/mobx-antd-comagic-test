@@ -13,13 +13,12 @@ export const authOptions: NextAuthOptions = {
     },
     callbacks: {
         async session({ session, user }) {
+            console.log('SESSION', session, user)
             if (session && !user?.id) {
-                // @ts-ignore
-                const user = await getUserByLogin(credentials.email)
-                if (user) {
-                    return { ...session, userId: user?.id };
+                const dbuser = await getUserByLogin(user?.email)
+                if (dbuser) {
+                    return { ...session, userId: dbuser?.id };
                 }
-                return {};
             }
             return { ...session, userId: user?.id };
         },

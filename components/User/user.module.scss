@@ -1,0 +1,61 @@
+@import "src/styles/mixins";
+
+
+.user {
+  padding: 16px;
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  justify-content: space-between;
+
+  border: 1px solid rgba(255,255,255,0.1);
+  border-radius: 12px;
+  transition: all 0.3s ease 0s;
+
+
+  &:hover {
+    @include glassmorphism-main;
+  }
+
+
+  &__container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 10px;
+
+    &_iconBox {
+      display: flex;
+      width: 48px;
+      height: 48px;
+      justify-content: center;
+      align-items: center;
+      background: rgba(255,255,255,0.2);
+      border-radius: 100%;
+    }
+
+    &_userName {
+      display: flex;
+      flex-direction: column;
+
+      h2 {
+        font-weight: 700;
+      }
+
+      h3 {
+        font-weight: 700;
+      }
+    }
+  }
+
+
+  &__btnBox {
+    display: flex;
+    width: 100px;
+    align-items: center;
+
+    button {
+      width: 100%;
+    }
+  }
+}

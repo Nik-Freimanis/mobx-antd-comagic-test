@@ -1,0 +1,37 @@
+@import "src/styles/mixins";
+
+.nav {
+  padding: 16px;
+  display: flex;
+  width: 100%;
+  border-radius: 12px;
+  border: 1px solid rgba(255,255,255,0.1);
+  transition: all 0.3s ease 0s;
+
+
+  &:hover {
+    background: rgba(255,255,255,0.1);
+  }
+
+  &__selected {
+
+    @include glassmorphism-main
+  }
+
+  &__container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 16px;
+
+    svg {
+      display: flex;
+      align-items: center;
+
+      use {
+        margin: auto;
+        display: flex;
+      }
+    }
+  }
+}

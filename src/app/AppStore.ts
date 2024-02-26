@@ -6,9 +6,9 @@ export type user = {id: string, firstName: string, lastName: string};
 export type message = {id: string, value: string, to: user['id']};
 class AppStore {
     public posts: {id: string, text: string, author: string, avatar: string, img: string, comments: {id: string, description: string}[]}[];
-    public users: user[]
-    public messages: message[];
-    public friendIds: string[];
+    public users: user[] = [];
+    public messages: message[] = [];
+    public friendIds: string[] = [];
 
     constructor() {
         this.posts = [];
@@ -17,12 +17,35 @@ class AppStore {
 
 
     addPost() {
-        const postProfileImg = faker.image.avatarGitHub()
-        const postText = faker.lorem.sentence();
-        const postImg = `${faker.image.urlLoremFlickr()}?random=${Math.round(Math.random() * 1000)}`
-        const postAuthor = faker.person.fullName()
+        const avatar = faker.image.avatarGitHub()
+        const text = faker.lorem.sentence();
+        const img = `${faker.image.urlLoremFlickr()}?random=${Math.round(Math.random() * 1000)}`
+        const author = faker.person.fullName()
 
-        this.posts.unshift({id: nanoid(8), author: postAuthor, avatar: postProfileImg, text: postText, img: postImg, comments: []});
+        this.posts.unshift({id: nanoid(8), author, avatar, text, img, comments: []});
+    }
+
+    addUser() {
+        const firstName = faker.person.firstName()
+        const lastName = faker.person.lastName()
+
+        this.users.unshift({id: nanoid(8), firstName, lastName})
+    }
+
+    generateUsers() {
+        for (let i=0; i<10; i++) {
+            this.users.push({id: nanoid(8), firstName: faker.person.firstName(), lastName: faker.person.lastName()})
+        }
+    }
+    generatePosts() {
+        for (let i=0; i<5; i++) {
+            const avatar = faker.image.avatarGitHub()
+            const text = faker.lorem.sentence();
+            const img = `${faker.image.urlLoremFlickr()}?random=${Math.round(Math.random() * 1000)}`
+            const author = faker.person.fullName()
+
+            this.posts.unshift({id: nanoid(8), author, avatar, text, img, comments: []});
+        }
     }
 
     public setUsers(users: user[]) {

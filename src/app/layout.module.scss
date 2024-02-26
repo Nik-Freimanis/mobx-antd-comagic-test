@@ -6,6 +6,7 @@
   height: 100vh;
   min-height: 1000px;
   width: 100vw;
+  overflow: hidden;
 
 
   [id = 'background'] {
@@ -32,21 +33,20 @@
       width: 100%;
       gap: 32px;
 
-      &_bar {
-        padding: 32px;
-        display: flex;
+      aside {
+        flex-direction: column;
+        gap: 16px;
         min-width: 350px;
-        height: 100%;
 
+        @include wrapper-main;
         @include glassmorphism-main;
       }
 
       &_children {
-        padding: 32px;
-        display: flex;
-        height: 100%;
-        width: 640px;
+        width: 100%;
+        overflow: scroll;
 
+        @include wrapper-main;
         @include glassmorphism-main;
       }
     }

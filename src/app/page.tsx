@@ -13,9 +13,10 @@ const Home = observer(() => {
 
     const session = useSession()
     console.log(session)
-    useEffect(() => {
-        getUsersList().then(res => AppStore.setUsers(res));
 
+
+    useEffect(() => {
+        AppStore.generatePosts();
     }, [])
 
     return (

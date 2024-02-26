@@ -1,0 +1,19 @@
+@import "src/styles/mixins";
+@import "src/styles/variables";
+
+
+.friendsList {
+  width: 100%;
+  @include wrapper-main;
+  @include glassmorphism-main;
+
+  &__container {
+
+
+    h2 {
+      font-family: $fontFamily;
+      font-size: 18px;
+      font-weight: 700;
+    }
+  }
+}

@@ -1,0 +1,35 @@
+@import "src/styles/mixins";
+@import "src/styles/variables";
+
+
+.friends {
+  display: flex;
+  width: 100%;
+  height: 100%;
+  flex-direction: column;
+  gap: 16px;
+  justify-content: space-between;
+  overflow: hidden;
+
+  h1 {
+    font-family: $fontFamily;
+    font-size: 28px;
+  }
+
+  &__container {
+    display: flex;
+    flex-direction: row;
+    gap: 16px;
+    height: 93%;
+
+    &_content {
+      //padding-bottom: 64px;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      min-width: 400px;
+      height: 100%;
+      overflow: scroll;
+    }
+  }
+}

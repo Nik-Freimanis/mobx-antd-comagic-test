@@ -1,6 +1,9 @@
 export enum IconsEnum {
     'none',
     'dude',
+    'main-page',
+    'messages',
+    'friends'
 
 }
 

@@ -7,16 +7,17 @@ import Icon from "../Icon";
 import {Button} from "antd";
 import AppStore from "@/app/AppStore";
 
-interface UserProps {
+interface FriendProps {
     id: string,
     firstName: string,
-    lastName: string
+    lastName: string,
+    onClick?: () => void;
 }
 
 
-export const Friend = observer(({id, firstName, lastName}: UserProps) => {
+export const Friend = observer(({id, firstName, lastName, onClick}: FriendProps) => {
     return (
-        <div className={s.friend}>
+        <div className={s.friend} onClick={onClick}>
             <div className={s.friend__container}>
                 <div className={s.friend__container_content}>
                     <div className={s.friend__container_content_iconBox}>

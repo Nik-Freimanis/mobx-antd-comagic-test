@@ -5,6 +5,6 @@ import {Button} from "antd";
 
 export const SignOutButton = () => {
     return (
-        <Button onClick={() => signOut()}>Выйти</Button>
+        <Button onClick={() => signOut()} type={'primary'}>Выйти</Button>
     )
 }

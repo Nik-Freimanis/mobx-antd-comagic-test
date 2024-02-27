@@ -9,9 +9,6 @@ import FriendsList from "../../../components/FriendsList";
 
 const FriendsPage = observer(() => {
 
-    useEffect(() => {
-        AppStore.generateUsers();
-    }, [])
 
     return (
         <div className={s.friends}>

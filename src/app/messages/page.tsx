@@ -28,7 +28,7 @@ const MessagesPage = observer(() => {
         }
     };
 
-    // @ts-ignore
+
     return (
         <div className={s.messages}>
             <h1>Сообщения</h1>
@@ -36,11 +36,16 @@ const MessagesPage = observer(() => {
                 <FriendsList onSelectFriend={setSelectedFriend} />
                 <div className={s.messages__container_content}>
                     <div className={s.messages__container_content_messenger}>
-                        <List
-                            header={<h2>{selectedFriend ? `Сообщения с ${selectedFriend.firstName}` : "Выберите друга"}</h2>}
-                            dataSource={friendMessages}
-                            renderItem={item => <List.Item>{item.value}</List.Item>}
-                        />
+                        <h2>{selectedFriend ? `Сообщения с ${selectedFriend.firstName}` : "Выберите друга"}</h2>
+                        <div className={s.messages__container_content_messenger_messages}>
+                        {friendMessages.map(item => (
+                            <div className={s.messages__container_content_messenger_messages_item} key={item.id}>
+                                <p>
+                                    {item.value}
+                                </p>
+                            </div>
+                        ))}
+                        </div>
                         {selectedFriend && (
                             <div className={s.messages__container_content_input}>
                                 <Input
@@ -51,11 +56,8 @@ const MessagesPage = observer(() => {
                                 />
                                 <Button
                                     onClick={handleSendMessage}
-                                    type="primary"
                                     icon={<Icon name={'send'} />}
-                                >
-                                    Отправить
-                                </Button>
+                                />
                             </div>
                         )}
                     </div>

@@ -1,38 +1,39 @@
-'use client'
-
-import React, { useEffect } from "react";
-import AppStore from '../../src/app/AppStore';
+import React from "react";
 import { observer } from "mobx-react";
+import s from './FriendsList.module.scss';
 import { Friend } from "../Friend";
-import s from './friendsList.module.scss';
-import notFound from '@assets/svg/notFound.svg'
-import Image from "next/image";
+import AppStore from "@/app/AppStore";
 
-const FriendsList = observer(() => {
-    useEffect(() => {
-        AppStore.generateUsers();
-    }, []);
+interface FriendData {
+    id: string;
+    firstName: string;
+    lastName: string;
+}
+interface FriendsListProps {
+    onSelectFriend?: (friend: FriendData) => void;
+}
 
-
-
+const FriendsList: React.FC<FriendsListProps> = ({ onSelectFriend }) => {
     const friends = AppStore.getUserListByFriendIds();
+
+
+    const handleFriendSelect = (friend: FriendData) => {
+        if (onSelectFriend) {
+            onSelectFriend(friend);
+        }
+    };
 
     return (
         <div className={s.friendsList}>
             <div className={s.friendsList__container}>
                 <div className={s.friendsList__container_content}>
-                    {friends.length === 0 ? (
-                        <div className={s.friendsList__container_content_noFriends}>
-                            <Image src={notFound} alt={'not found'} />
-                            <p>Добавьте друзей</p>
-                        </div>
-                    ) : (
-                        friends.map(friend => <Friend key={friend.id} {...friend} />)
-                    )}
+                    {friends.map(friend => (
+                        <Friend key={friend.id} {...friend} onClick={() => handleFriendSelect(friend)} />
+                    ))}
                 </div>
             </div>
         </div>
     );
-});
+};
 
-export default FriendsList;
+export default observer(FriendsList);

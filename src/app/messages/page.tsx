@@ -1,11 +1,11 @@
 'use client'
 
-import React, { useEffect, useState } from "react";
-import { observer } from "mobx-react";
+import React, {useEffect, useState} from "react";
+import {observer} from "mobx-react";
 import s from './messages.module.scss';
 import FriendsList from "../../../components/FriendsList";
-import { Button, Input, List } from "antd";
-import AppStore, { user, message } from "@/app/AppStore";
+import {Button, Input, List} from "antd";
+import AppStore, {user, message} from "@/app/AppStore";
 import Icon from "../../../components/Icon";
 
 const MessagesPage = observer(() => {
@@ -33,18 +33,18 @@ const MessagesPage = observer(() => {
         <div className={s.messages}>
             <h1>Сообщения</h1>
             <div className={s.messages__container}>
-                <FriendsList onSelectFriend={setSelectedFriend} />
+                <FriendsList onSelectFriend={setSelectedFriend}/>
                 <div className={s.messages__container_content}>
                     <div className={s.messages__container_content_messenger}>
                         <h2>{selectedFriend ? `Сообщения с ${selectedFriend.firstName}` : "Выберите друга"}</h2>
                         <div className={s.messages__container_content_messenger_messages}>
-                        {friendMessages.map(item => (
-                            <div className={s.messages__container_content_messenger_messages_item} key={item.id}>
-                                <p>
-                                    {item.value}
-                                </p>
-                            </div>
-                        ))}
+                            {friendMessages.map(item => (
+                                <div className={s.messages__container_content_messenger_messages_item} key={item.id}>
+                                    <p>
+                                        {item.value}
+                                    </p>
+                                </div>
+                            ))}
                         </div>
                         {selectedFriend && (
                             <div className={s.messages__container_content_input}>
@@ -56,7 +56,7 @@ const MessagesPage = observer(() => {
                                 />
                                 <Button
                                     onClick={handleSendMessage}
-                                    icon={<Icon name={'send'} />}
+                                    icon={<Icon name={'send'}/>}
                                 />
                             </div>
                         )}

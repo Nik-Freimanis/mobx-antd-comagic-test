@@ -38,32 +38,32 @@ export default async function RootLayout({children}: Readonly<ProfileLayoutProps
     }
 
 
-
     return (
         <html lang="ru">
         <body>
         <Providers>
-                <div className={s.layout}>
-                    <Image src={bg} alt={'background'} id={'background'}/>
-                    <div className={s.layout__container}>
-                        <div className={s.layout__container_content}>
-                            <div className={s.layout__container_content_bar}>
-                                <aside>
-                                    <UserTab />
-                                    {navList.map((nav, id) => (
-                                        <NavBar key={id} {...nav} />
-                                    ))}
-                                </aside>
-                                <div className={s.layout__container_content_bar_friends}>
-                                    <FriendsRequests />
-                                </div>
+            <div className={s.layout}>
+                <Image src={bg} alt={'background'} id={'background'}/>
+                <div className={s.layout__container}>
+                    <div className={s.layout__container_content}>
+                        <div className={s.layout__container_content_bar}>
+                            <aside>
+                                <UserTab/>
+                                {navList.map((nav, id) => (
+                                    // @ts-ignore
+                                    <NavBar key={id} {...nav} />
+                                ))}
+                            </aside>
+                            <div className={s.layout__container_content_bar_friends}>
+                                <FriendsRequests/>
                             </div>
-                            <div className={s.layout__container_content_children}>
-                                {children}
-                            </div>
+                        </div>
+                        <div className={s.layout__container_content_children}>
+                            {children}
                         </div>
                     </div>
                 </div>
+            </div>
         </Providers>
         </body>
         </html>

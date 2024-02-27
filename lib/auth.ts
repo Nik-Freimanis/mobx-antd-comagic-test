@@ -1,4 +1,3 @@
-import * as bcrypt from 'bcrypt';
 import CredentialsProvider from 'next-auth/providers/credentials';
 import { isExists } from '@utils/functions';
 import type { NextAuthOptions } from 'next-auth';
@@ -30,6 +29,7 @@ export const authOptions: NextAuthOptions = {
             if (user.email === null || user.email === undefined) {
                 return '/api/auth/signin';
             }
+            // @ts-ignore
             const dbUser = await getUserByLogin(credentials.email as string)
             if (dbUser)
                 return credentials?.password === dbUser.password;

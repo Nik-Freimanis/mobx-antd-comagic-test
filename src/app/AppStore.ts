@@ -7,8 +7,11 @@ export type message = {id: string, value: string, to: user['id']};
 class AppStore {
     public posts: {id: string, text: string, author: string, avatar: string, img: string, comments: {id: string, description: string}[]}[];
     public users: user[] = [];
+    selectedFriend = null;
     public messages: message[] = [];
     public friendIds: string[] = [];
+
+
 
     constructor() {
         this.posts = [];
@@ -48,8 +51,13 @@ class AppStore {
         }
     }
 
-    public setUsers(users: user[]) {
-        this.users = users
+    // @ts-ignore
+    setSelectedFriend(friend) {
+        this.selectedFriend = friend;
+    }
+
+    getSelectedFriend() {
+        return this.selectedFriend;
     }
 
     public addToFriends(userId: user['id']) {

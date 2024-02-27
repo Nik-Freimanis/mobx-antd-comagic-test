@@ -1,6 +1,6 @@
 import React from "react";
 import { observer } from "mobx-react";
-import s from './FriendsList.module.scss';
+import s from './friendsList.module.scss';
 import { Friend } from "../Friend";
 import AppStore from "@/app/AppStore";
 

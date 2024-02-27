@@ -1,6 +1,6 @@
 # Тестовое в CoMagic
 
-![social-Co-Magic](https://i.ibb.co/Jc9vYpJ/social-Co-Magic.png)
+![social-Co-Magic](https://i.ibb.co/FXn116n/social-Co-Magic.png)
 
 ## Задачи
 

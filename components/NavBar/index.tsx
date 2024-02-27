@@ -15,7 +15,7 @@ interface NavBarProps {
 }
 
 export const NavBar: React.FC<NavBarProps> = ({label, href, icon}) => {
-    const selectedSegment = useSelectedLayoutSegment();
+    const selectedSegment: string | null = useSelectedLayoutSegment();
     const isSelected = selectedSegment === href || (selectedSegment === null && href === "/");
     console.log(selectedSegment)
 

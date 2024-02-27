@@ -1,0 +1,49 @@
+.comment {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+
+
+  h4 {
+    font-size: 18px;
+    font-weight: 600;
+  }
+
+  &__container {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+
+
+    &_content {
+      display: flex;
+      flex-direction: column;
+      min-height: 130px;
+      max-height: 130px;
+      overflow: scroll;
+
+      &_noComments {
+        margin: 0 auto;
+        display: flex;
+        flex-direction: column;
+
+        p {
+          text-align: center;
+          color: rgba(255, 255, 255, 0.5);
+          font-weight: 300;
+        }
+
+        img {
+          height: 100px;
+          opacity: 0.6;
+        }
+      }
+
+      &_item {
+        display: flex;
+        flex-direction: row;
+        gap: 16px;
+      }
+    }
+  }
+}

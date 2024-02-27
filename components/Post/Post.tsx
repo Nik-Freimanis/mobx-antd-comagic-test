@@ -33,7 +33,7 @@ export const Post = observer(({id, text, author, img, avatar}: PostProps) => {
                 </div>
                 <div className={s.post__container_content}>
                     <div className={s.post__container_content_img}>
-                        <Image src={img} alt={id} width={640} height={480}/>
+                        <Image src={img} alt={id} width={925} height={480} priority={true}/>
                     </div>
                     <p>{text}</p>
                     <Comment id={id}/>

@@ -1,17 +1,16 @@
 import type {Metadata} from "next";
 import {Inter} from "next/font/google";
 import "./globals.css";
-import {getServerSession, redirectIfNoSession} from '../../utils/auth';
-import {AntdRegistry} from '@ant-design/nextjs-registry';
+import {getServerSession} from '../../utils/auth';
 import {ReactNode} from "react";
 import s from './layout.module.scss'
 import bg from '../assets/img/bg.webp'
 import Image from "next/image";
-import {SessionProvider} from "next-auth/react";
 import {Providers} from "../../components/Providers";
 import {redirect} from "next/navigation";
 import {NavBar} from "../../components/NavBar";
-import FriendsList from "../../components/FriendsList";
+import {FriendsRequests} from "../../components/FriendsRequests";
+import {UserTab} from "../../components/UserTab";
 
 
 const inter = Inter({subsets: ["latin"]});
@@ -48,11 +47,17 @@ export default async function RootLayout({children}: Readonly<ProfileLayoutProps
                     <Image src={bg} alt={'background'} id={'background'}/>
                     <div className={s.layout__container}>
                         <div className={s.layout__container_content}>
-                            <aside>
-                                {navList.map((nav, id) => (
-                                    <NavBar key={id} {...nav} />
-                                ))}
-                            </aside>
+                            <div className={s.layout__container_content_bar}>
+                                <aside>
+                                    <UserTab />
+                                    {navList.map((nav, id) => (
+                                        <NavBar key={id} {...nav} />
+                                    ))}
+                                </aside>
+                                <div className={s.layout__container_content_bar_friends}>
+                                    <FriendsRequests />
+                                </div>
+                            </div>
                             <div className={s.layout__container_content_children}>
                                 {children}
                             </div>

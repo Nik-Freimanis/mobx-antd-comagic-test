@@ -33,14 +33,32 @@
       width: 100%;
       gap: 32px;
 
-      aside {
+      &_bar {
+        display: flex;
         flex-direction: column;
+        max-height: 950px;
         gap: 16px;
-        min-width: 350px;
 
-        @include wrapper-main;
-        @include glassmorphism-main;
+
+        &_friends {
+          min-height: 450px;
+          height: 100%;
+          @include wrapper-main;
+          @include glassmorphism-main;
+        }
+
+        aside {
+          flex-direction: column;
+          gap: 16px;
+          min-width: 380px;
+          min-height: 40%;
+
+          @include wrapper-main;
+          @include glassmorphism-main;
+        }
       }
+
+
 
       &_children {
         width: 100%;

@@ -15,11 +15,8 @@ const FriendsPage = observer(() => {
 
     return (
         <div className={s.friends}>
-            <h1>Заявки в друзья</h1>
+            <h1>Друзья</h1>
             <div className={s.friends__container}>
-                <div className={s.friends__container_content}>
-                    {AppStore.users.map(e => <User key={e.id} {...e}/>)}
-                </div>
                 <FriendsList/>
             </div>
         </div>

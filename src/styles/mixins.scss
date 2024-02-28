@@ -9,4 +9,8 @@
 @mixin wrapper-main {
   padding: 32px;
   display: flex;
+
+  ::-webkit-scrollbar {
+    display: none;
+  }
 }

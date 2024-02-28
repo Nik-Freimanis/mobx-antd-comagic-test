@@ -62,7 +62,8 @@
 
       &_children {
         width: 100%;
-        overflow: scroll;
+        overflow-y: scroll;
+        scrollbar-width: none;
 
         @include wrapper-main;
         @include glassmorphism-main;
